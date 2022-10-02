@@ -1,4 +1,11 @@
 const FILE=require('fs');
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 Path=process.argv[2];
 
 const CodeIn={
@@ -21,16 +28,42 @@ const CodeIn={
 
     Initialise_mem(Array)
     {
-        this.memory=Array;
+        Programm=CodeExecution;
+        CodeExecution.Starting_Execution(Array);
     },
 }
 
 const CodeExecution={
-    
+
+    Starting_Execution(Programm)
+    {
+        this.memory=Programm;
+        this.reserved_mem_command_index=Programm.length;
+    },
+
+    Execution(memory)
+    {
+
+    },
+
+    Get_from_keyboard()
+    {
+        let data=rl.question();
+        this.memory[this.reserved_mem_command_index]=data;
+        reserved_mem_command_index++;
+        console.log(CodeExecution.reserved_mem_command_index)
+    },
+
+    Intialise_part_mem(index,value)
+    {
+        
+    }
+
 }
 
 
 
 Code=CodeIn;
+T=CodeExecution;
 Code.InputCode(Path);
-console.log(Code);
+console.log(T.Get_from_keyboard())
