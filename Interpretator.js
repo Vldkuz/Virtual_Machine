@@ -1,10 +1,5 @@
 const FILE=require('fs');
-const readline = require('readline');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const readline = require('readline-sync');
 
 Path=process.argv[2];
 
@@ -34,7 +29,7 @@ const CodeIn={
 }
 
 const CodeExecution={
-
+    
     Starting_Execution(Programm)
     {
         this.memory=Programm;
@@ -48,16 +43,15 @@ const CodeExecution={
 
     Get_from_keyboard()
     {
-        let data=rl.question();
-        this.memory[this.reserved_mem_command_index]=data;
-        reserved_mem_command_index++;
-        console.log(CodeExecution.reserved_mem_command_index)
+        let data = readline.question("Enter fib_number : ");
+        this.memory.push(data);
+        this.reserved_mem_command_index++;
     },
 
     Intialise_part_mem(index,value)
     {
-        
-    }
+        this.memory.push(value);
+    },
 
 }
 
